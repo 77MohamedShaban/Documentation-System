@@ -1,0 +1,34 @@
+scalar Upload
+type Sdd {
+	id: String!
+	uml: [String]
+	project: Project
+	projectId: String!
+}
+
+type Query {
+	sdds: [Sdd]
+	sdd(id: String!): Sdd
+}
+
+input SddInput {
+	id: String!
+	uml: [String]
+	projectId: String!
+	project: ProjectInput
+}
+
+input CreateSddInput {
+	uml: [String]!
+	projectId: String!
+}
+
+input UpdateSddInput {
+	uml: [String]!
+}
+
+type Mutation {
+	createSdd(input: CreateSddInput!): Sdd
+	updateSdd(id: String!, input: UpdateSddInput!): Sdd
+	deleteSdd(id: String!): Sdd
+}

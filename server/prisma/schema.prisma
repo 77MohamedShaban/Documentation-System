@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id              String   @id @default(uuid())
+  title           String   @default("No title")
+  startIn         DateTime @default(now())
+  endIn           DateTime @default(now())
+  objectives      String   @default("No objectives")
+  project_manager String   @default("No project manager")
+  budget          Int      @default(0)
+  scope           String   @default("local")
+  srss            SRS[]
+  sdds            SDD[]
+}
+
+model SRS {
+  id                String  @id @default(uuid())
+  intro             String
+  purpose           String
+  intended_audience String
+  description       String
+  requirements      String
+  use_case          String
+  project           Project @relation(fields: [projectId], references: [id])
+  projectId         String  @unique
+}
+
+model SDD {
+  id        String   @id @default(uuid())
+  uml       String[]
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId String   @unique
+}
