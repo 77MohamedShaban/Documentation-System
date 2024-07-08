@@ -33,19 +33,18 @@ This app is where you will store your Software Development Life Cycle Documentat
 # clone the repo
 git clone https://github.com/Adosh74/Documentation-System
 
+# create [ public ] folder in server folder
+# create [ images ] folder in public folder
+# create [ .env ] file in server folder [NODE_ENV , DATABASE_URL] fill the .env file with your database credentials
+
 # Move to the project directory
 cd Documentation-System
 
 # install all dependencies.
 npm run build
 
-# sync prisma with database
-npm run prisma:deploy
-npm run prisma:generate
-# After that, fill the .env file with your database credentials
-
 # Start all processes with one command
-npm start
+npm  run start
 
 ```
 - Now, you can access the the Next.js app on ```http http://localhost:3000```
