@@ -1,6 +1,10 @@
 .body {
-   color:rgb(0, 0, 0);
-   background-color: #ffffffde;
-      background-size: cover;
+  color: rgb(0, 0, 0);
+  background-color: #ffffffde;
+  background-size: cover;
   background-position: center;
+}
+.phases {
+  display: flex;
+  justify-content: center;
 }
